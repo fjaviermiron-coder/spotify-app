@@ -523,7 +523,7 @@ async function runLabel() {
 
     const plName = document.getElementById('label-playlist-name').value.trim() || `Discogs Sello ${labelId}`;
     const isPublic = document.getElementById('label-public-toggle').classList.contains('on');
-    const pl = await spotifyPost(`/users/${state.userId}/playlists`, {
+    const pl = await spotifyPost(`/me/playlists`, {
       name: plName, public: isPublic,
       description: `Catálogo generado desde Discogs label ${labelId}`
     });
@@ -628,7 +628,7 @@ async function runArtist() {
 
     const plName = document.getElementById('artist-playlist-name').value.trim() || `${artist.name} – Discografía completa`;
     const isPublic = document.getElementById('artist-public-toggle').classList.contains('on');
-    const pl = await spotifyPost(`/users/${state.userId}/playlists`, {
+    const pl = await spotifyPost(`/me/playlists`, {
       name: plName, public: isPublic,
       description: `Discografía completa de ${artist.name}`
     });
